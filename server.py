@@ -65,7 +65,7 @@ def serve_static(path):
 
 @app.route('/')
 def home():
-   return send_from_directory('client/public', 'index.html')
+   return Response("Hello from the server!", status=200)
 
 @app.route('/<path:path>')
 def all_routes(path):
