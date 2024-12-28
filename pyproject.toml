@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "harvest-festival"
+version = "0.1.0"
+description = ""
+authors = ["Santhosh <santhosh.kumar.divakar@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+flask = "2.3.2"
+gunicorn = "20.1.0"
+psycopg2-binary = "^2.9.9"
+flask-sqlalchemy = "^3.1.1"
+werkzeug = "^3.0.1"
+pillow = "^10.1.0"
+icecream = "^2.1.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
