@@ -5,13 +5,18 @@ from models import db
 from icecream import ic
 import items
 
+# SUPABASE SETUP
+from supabase import create_client, Client
+
+url: str = os.environ.get("SUPABASE_URL")
+key: str = os.environ.get("SUPABASE_KEY")
+supabase: Client = create_client(url, key)
+
+user = supabase.auth.sign_in_with_password({ "email": users_email, "password": users_password })
+
 app = Flask(__name__)
 
 port = int(os.environ.get("PORT", 8000))
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://fl0user:ULf8bhoGp1XS@ep-broken-paper-05736162.ap-southeast-1.aws.neon.fl0.io:5432/harvest-festival-db?sslmode=require'
-app.config['SQLALCHEMY_ECHO'] = True
-db.init_app(app)
 
 with app.app_context():
     db.create_all()
